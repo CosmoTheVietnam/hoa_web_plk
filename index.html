@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trường THPT Pleiku</title>
+  <link rel="icon" href="https://lh3.googleusercontent.com/sitesv/APaQ0STWOwOq_w43V3UYK1R-ORNrePWYy70DVrcSOwFN0uCAzZVOk1vEIPIVXgPz-vuNHsbx5BvhiiYZi12sSm7kK40lnSKgeuAZ5SSZj7XkA4xeHlDN5i7deSXtrpkNcJtAvZFE3LMj5Il4va3sOxir3Or-p5xf1_20-6xyPEnjh2686i_wK1bS7SMq=w16383" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700&display=swap');
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(to bottom, #f8fafc, #f1f5f9);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #fbbf24;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .card-achievement {
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    .card-achievement:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-achievement .achievement-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(30, 58, 138, 0.8) 0%, rgba(37, 99, 235, 0.6) 100%);
+    }
+
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    .activity-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .activity-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input, 
+    .contact-form textarea {
+      transition: all 0.3s ease;
+      border: 2px solid #e2e8f0;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .footer-link {
+      position: relative;
+      color: #93c5fd;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #fbbf24;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-slide-in {
+      animation: slideInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <div class="flex items-center space-x-3">
+          <img src="https://lh3.googleusercontent.com/sitesv/APaQ0STWOwOq_w43V3UYK1R-ORNrePWYy70DVrcSOwFN0uCAzZVOk1vEIPIVXgPz-vuNHsbx5BvhiiYZi12sSm7kK40lnSKgeuAZ5SSZj7XkA4xeHlDN5i7deSXtrpkNcJtAvZFE3LMj5Il4va3sOxir3Or-p5xf1_20-6xyPEnjh2686i_wK1bS7SMq=w16383" alt="Logo" class="w-12 h-12 rounded-lg">
+          <h1 class="text-3xl font-bold font-['Sora']">THPT Pleiku</h1>
+        </div>
+        <nav class="hidden md:flex space-x-1">
+          <a href="#gioithieu" class="nav-link px-4 py-2">Giới thiệu</a>
+          <a href="#thanhtich" class="nav-link px-4 py-2">Thành tích</a>
+          <a href="#hoatdong" class="nav-link px-4 py-2">Hoạt động</a>
+          <a href="#lienhe" class="nav-link px-4 py-2">Liên hệ</a>
+        </nav>
+        <button class="md:hidden text-2xl">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="bg-cover bg-center h-[500px] flex items-center justify-center text-white relative overflow-hidden">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative z-10 text-center animate-slide-in">
+      <h2 class="text-5xl md:text-6xl font-bold mb-4 font-['Sora']">Nơi chắp cánh ước mơ</h2>
+      <p class="text-lg md:text-xl text-blue-100 mb-8">Trường THPT Pleiku - Nơi rèn luyện những tận tâm</p>
+      <button class="btn-primary text-white px-8 py-3 rounded-lg font-semibold">Khám phá ngay</button>
+    </div>
+    <div class="absolute inset-0" style="background-image:url('banner.jpg'); background-size: cover; background-position: center; z-index: 0;"></div>
+  </section>
+
+  <!-- Giới thiệu -->
+  <section id="gioithieu" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="section-title">Về Trường Chúng Tôi</h3>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-in">
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">Trường THPT Pleiku được thành lập năm 1975, là một trong những trường THPT hàng đầu tại tỉnh Gia Lai. Với hơn 50 năm hoạt động, nhà trường đã đào tạo hàng nghìn học sinh với nhiều thành tích nổi bật.</p>
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">Chúng tôi cam kết cung cấp giáo dục chất lượng cao, phát triển toàn diện cho học sinh cả về kiến thức lẫn kỹ năng sống.</p>
+          <ul class="space-y-3">
+            <li class="flex items-center text-gray-700"><span class="text-blue-500 mr-3">✓</span> Đội ngũ giáo viên giàu kinh nghiệm</li>
+            <li class="flex items-center text-gray-700"><span class="text-blue-500 mr-3">✓</span> Cơ sở vật chất hiện đại</li>
+            <li class="flex items-center text-gray-700"><span class="text-blue-500 mr-3">✓</span> Chương trình học tiên tiến</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-8 text-white shadow-xl">
+          <h4 class="text-2xl font-bold mb-6">Con số nổi bật</h4>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span>Năm hoạt động</span>
+              <span class="text-3xl font-bold">50+</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Học sinh là cầu nối</span>
+              <span class="text-3xl font-bold">5000+</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Giáo viên tận tâm</span>
+              <span class="text-3xl font-bold">200+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thành tích -->
+  <section id="thanhtich" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="section-title">Thành tích đạt được</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-achievement p-8 rounded-2xl shadow-md">
+          <div class="achievement-icon bg-blue-100 text-blue-600">🎓</div>
+          <h4 class="text-xl font-bold mb-3 text-gray-800">98% Tốt nghiệp</h4>
+          <p class="text-gray-600 leading-relaxed">Tỷ lệ tốt nghiệp THPT luôn duy trì ở mức cao, phản ánh chất lượng giáo dục tại trường.</p>
+        </div>
+        <div class="card-achievement p-8 rounded-2xl shadow-md">
+          <div class="achievement-icon bg-yellow-100 text-yellow-600">🏆</div>
+          <h4 class="text-xl font-bold mb-3 text-gray-800">Giải thưởng</h4>
+          <p class="text-gray-600 leading-relaxed">Nhiều học sinh đạt giải thưởng cấp tỉnh, quốc gia và quốc tế trong các kỳ thi học sinh giỏi.</p>
+        </div>
+        <div class="card-achievement p-8 rounded-2xl shadow-md">
+          <div class="achievement-icon bg-green-100 text-green-600">📚</div>
+          <h4 class="text-xl font-bold mb-3 text-gray-800">Đỗ Đại học</h4>
+          <p class="text-gray-600 leading-relaxed">Tỷ lệ đỗ đại học ổn định cao, góp phần đưa nhiều học sinh vào các trường đại học top."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hoạt động -->
+  <section id="hoatdong" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="section-title">Hoạt động nổi bật</h3>
+      <div class="space-y-6">
+        <div class="activity-card p-6 md:p-8 animate-slide-in">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl">🔬</div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Trại hè khoa học</h4>
+              <p class="text-gray-600 mb-4">Cơ hội cho học sinh khám phá, nghiên cứu và phát triển kỹ năng STEM.</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <img src="https://thptpleiku.gialai.edu.vn/upload/20382/fck/thptplk_huonglett/2026_01_15_12_08_512.png" alt="STEM Activity 1" class="rounded-lg shadow-md hover:shadow-lg transition-shadow w-full h-48 object-cover">
+                <img src="https://thptpleiku.gialai.edu.vn/upload/20382/fck/thptplk_huonglett/2026_03_02_14_10_356.png" alt="STEM Activity 2" class="rounded-lg shadow-md hover:shadow-lg transition-shadow w-full h-48 object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="activity-card p-6 md:p-8 animate-slide-in">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl">🎨</div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Văn hóa - Hoạt động</h4>
+              <p class="text-gray-600 mb-4">Các hoạt động văn hoá đa dạng giúp học sinh phát triển tinh thần sáng tạo và đoàn kết.</p>
+            </div>
+          </div>
+        </div>
+        <div class="activity-card p-6 md:p-8 animate-slide-in">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl">🏅</div>
+            <div>
+              <h4 class="text-xl font-bold text-gray-800 mb-2">Hội thao</h4>
+              <p class="text-gray-600 mb-4">Cuộc thi thể thao sôi nổi, góp phần rèn luyện thể chất và tinh thần thể thao cho học sinh.</p>
+              <img src="https://thptpleiku.gialai.edu.vn/upload/20382/fck/thptplk_huonglett/HHH_6246.JPG" alt="Hội thao" class="rounded-lg shadow-md hover:shadow-lg transition-shadow w-full h-48 object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Liên hệ -->
+  <section id="lienhe" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="section-title">Liên hệ với chúng tôi</h3>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl text-blue-600">📍</div>
+            <div>
+              <h4 class="font-bold text-gray-800">Địa chỉ</h4>
+              <p class="text-gray-600">Trường THPT Pleiku, Phường Pleiku, Tỉnh Gia Lai, Việt Nam</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl text-blue-600">📞</div>
+            <div>
+              <h4 class="font-bold text-gray-800">Điện thoại</h4>
+              <p class="text-gray-600">02693 824364</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-xl text-blue-600">✉️</div>
+            <div>
+              <h4 class="font-bold text-gray-800">Email</h4>
+              <p class="text-gray-600">info@thptpleiku.edu.vn</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form space-y-4">
+          <input type="text" placeholder="Họ và tên" class="w-full px-4 py-3 rounded-lg focus:outline-none" required>
+          <input type="email" placeholder="Email của bạn" class="w-full px-4 py-3 rounded-lg focus:outline-none" required>
+          <textarea placeholder="Tin nhắn" rows="4" class="w-full px-4 py-3 rounded-lg focus:outline-none resize-none" required></textarea>
+          <button type="submit" class="btn-primary text-white w-full py-3 rounded-lg font-semibold">Gửi tin nhắn</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold text-lg mb-4">Về trường</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link text-sm">Lịch sử trường</a></li>
+            <li><a href="#" class="footer-link text-sm">Tầm nhìn, sứ mệnh</a></li>
+            <li><a href="#" class="footer-link text-sm">Đội ngũ lãnh đạo</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Học tập</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link text-sm">Chương trình học</a></li>
+            <li><a href="#" class="footer-link text-sm">Khoá học online</a></li>
+            <li><a href="#" class="footer-link text-sm">Tư liệu</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-4">Kết nối</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="footer-link text-sm">Facebook</a></li>
+            <li><a href="#" class="footer-link text-sm">YouTube</a></li>
+            <li><a href="#" class="footer-link text-sm">Liên hệ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-blue-700 pt-8 text-center">
+        <p class="text-blue-100">&copy; 2026 Trường THPT Pleiku - Gia Lai. Tất cả các quyền được bảo lưu.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
